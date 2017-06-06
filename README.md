@@ -36,6 +36,9 @@ The third objective is to practice our usage of **Docker**. All the components o
 * You are able to show where the apache config files are located (in a running container).
 * You have documented your configuration in your report.
 
+### RESUME: 
+
+
 ## Step 2: Dynamic HTTP server with express.js
 
 ### Webcasts
