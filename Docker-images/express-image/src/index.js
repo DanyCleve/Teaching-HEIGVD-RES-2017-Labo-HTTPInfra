@@ -6,39 +6,43 @@ var app = express();
 
 
 app.get('/', function (req, res) {
-	res.send(generateStudents());
+	res.send(generateLocation());
 });
 
 app.listen(3000, function () {
 	console.log('Accepting HTTP requests on port 3000!');
 });
 
-function generateStudents(){
-	var numberOfStudents = chance.integer({
-		min: 0,
-		max: 10
+function generateLocation(){
+	var numberOfLocation = chance.integer({
+		min: 5,
+		max: 20
 	});
 	
-	console.log(numberOfStudents);
-	var students = [];
-	for(var i = 0; i < numberOfStudents; i++){
-		var gender = chance.gender();
-		var birthYear = chance.year({
-			min: 1986,
-			max: 1996
-		});
+	console.log(numberOfLocation);
+	var locations = [];
+
+	for(var i = 0; i < numberOfLocation; i++){
+
+		var province = chance.province({full: true});
+
+		var country = chance.country({country: 'fr', full: true}); // to return a full name
 		
-		students.push({
-			firstName: chance.first({
-				gender: gender
-			}),
-			lastName: chance.last(),
-			gender: gender,
-			birthday: chance.birthday({
-				year: birthYear
-			})
+		var city = chance.city();
+
+		var postal = chance.postal();
+
+		var street = chance.street();
+
+		
+		locations.push({
+			province: province,
+			country: country,
+			city: city,
+			postal: postal,
+			street : street
 		});
 	};
-	console.log(students);
-	return students;
+	console.log(locations);
+	return locations;
 }
