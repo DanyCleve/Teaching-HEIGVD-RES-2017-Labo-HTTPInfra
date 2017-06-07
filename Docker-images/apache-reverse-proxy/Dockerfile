@@ -3,7 +3,7 @@ FROM php:7.0-apache
 MAINTAINER dany Simo
 
 RUN apt-get update && \
-	apt-get install nano
+	apt-get install -y vim
 	
 COPY conf/ /etc/apache2
 
