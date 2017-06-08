@@ -1,6 +1,5 @@
 $(function(){
-
-
+	
         function loadLocations(){
                 $.getJSON("/api/locations/", function(locations){
                         console.log(locations);
